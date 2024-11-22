@@ -1,15 +1,11 @@
-
-<script setup>
-
-</script>
+<script setup></script>
 
 <template>
-    <div>
-        <TheNavigation/>
-<slot/>
-    </div>
+  <div>
+    <TheNavigation />
+    <slot />
+    <TheFooter />
+  </div>
 </template>
 
-<style  scoped>
-
-</style>
+<style scoped></style>

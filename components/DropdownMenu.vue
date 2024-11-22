@@ -11,9 +11,9 @@ const toggleState = ref(false);
 </script>
 
 <template>
-  <DropdownMenuRoot class="block md:hidden" v-model:open="toggleState">
+  <DropdownMenuRoot class="md:hidden" v-model:open="toggleState">
     <DropdownMenuTrigger
-      class="rounded-full w-[35px] h-[35px] inline-flex items-center justify-center text-grass11 bg-white shadow-[0_2px_10px] shadow-blackA7 outline-none hover:bg-green3 focus:shadow-[0_0_0_2px] focus:shadow-black"
+      class="md:hidden rounded-full w-[35px] h-[35px] inline-flex items-center justify-center text-grass11 bg-white shadow-[0_2px_10px] shadow-blackA7 outline-none hover:bg-green3 focus:shadow-[0_0_0_2px] focus:shadow-black"
       aria-label="Customise options"
     >
       <svg
@@ -31,44 +31,39 @@ const toggleState = ref(false);
 
     <DropdownMenuPortal>
       <DropdownMenuContent
-        class="min-w-[220px] outline-none bg-white rounded-md p-[5px] shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade"
+        class="w-[160px] outline-none bg-white rounded-md p-[5px] shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade"
         :side-offset="5"
       >
         <DropdownMenuItem
-          value="New Tab"
-          class="group text-[13px] leading-none text-grass11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-green9 data-[highlighted]:text-green1"
-          @click="handleClick"
-        >
-          New Tab
-          <div
-            class="ml-auto pl-[20px] text-mauve11 group-data-[highlighted]:text-white group-data-[disabled]:text-mauve8"
-          >
-            ⌘+T
-          </div>
+          class="text-center hover:text-red">
+          <NuxtLink to="/">Home</NuxtLink>
         </DropdownMenuItem>
 
         <DropdownMenuItem
-          value="New Window"
-          class="group text-[13px] leading-none text-grass11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-green9 data-[highlighted]:text-green1"
+          class="text-center">
+          <NuxtLink to="/about-us">About</NuxtLink>
+        </DropdownMenuItem>
+
+        <DropdownMenuItem
+          class="text-center"
         >
-          New Window
-          <div
-            class="ml-auto pl-[20px] text-mauve11 group-data-[highlighted]:text-white group-data-[disabled]:text-mauve8"
-          >
-            ⌘+N
-          </div>
+          <NuxtLink to="/products">Products</NuxtLink>
+        </DropdownMenuItem>
+
+        <DropdownMenuItem
+          class="text-center"
+        >
+          <NuxtLink to="/contact">Contact</NuxtLink>
         </DropdownMenuItem>
         <DropdownMenuItem
-          value="New Private Window"
-          class="group text-[13px] leading-none text-grass11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-green9 data-[highlighted]:text-green1"
-          disabled
+          class="text-center"
         >
-          New Private Window
-          <div
-            class="ml-auto pl-[20px] text-mauve11 group-data-[highlighted]:text-white group-data-[disabled]:text-mauve8"
-          >
-            ⇧+⌘+N
-          </div>
+          <NuxtLink to="/blog">Blog</NuxtLink>
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          class="text-center"
+        >
+          <NuxtLink to="/faq">FAQ</NuxtLink>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenuPortal>
