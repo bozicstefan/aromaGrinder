@@ -1,5 +1,3 @@
-
-
 <script setup>
 import {
   NavigationMenuIndicator,
@@ -8,43 +6,77 @@ import {
   NavigationMenuRoot,
   NavigationMenuViewport,
 } from "radix-vue";
-
-
 </script>
 
 <template>
-  <header class="bg-gray-800 text-white sticky top-0 z-50">
-    <nav class="container mx-auto flex items-center justify-between p-4 sticky ">
+  <header class="bg-gradient-to-br from-amber-900 via-amber-800 to-amber-700 text-white sticky top-0 z-50 shadow-lg">
+    <nav class="container mx-auto flex items-center justify-between py-4 px-6">
       <!-- Logo -->
-      <div class="text-lg font-bold">
-        <a href="#" class="hover:text-primary">MyBrand</a>
+      <div class="text-2xl font-extrabold text-amber-300 hover:text-amber-400 transition">
+        <a href="#">AromaGrinder</a>
       </div>
 
       <!-- Navigation Menu -->
       <NavigationMenuRoot class="hidden md:flex space-x-6">
         <NavigationMenuList class="flex items-center space-x-6">
-          <NavigationMenuItem class="hover:text-yellow-400 active:text-yellow-700">
-            <NuxtLink active-class="text-yellow-300" to="/">Home</NuxtLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem class="hover:text-yellow-400">
-            <NuxtLink active-class="text-yellow-300"  to="/about-us">About</NuxtLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem class="hover:text-yellow-400">
-            <NuxtLink active-class="text-yellow-300"  to="/products">Products</NuxtLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem class="hover:text-yellow-400">
-            <NuxtLink active-class="text-yellow-300"  to="/contact">Contact</NuxtLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem class="hover:text-yellow-400">
-            <NuxtLink active-class="text-yellow-300"  to="/blog">Blog</NuxtLink>
+          <NavigationMenuItem>
+            <NuxtLink
+              to="/"
+              active-class="text-amber-300 border-b-2 border-amber-300"
+              class="hover:text-amber-400 transition pb-1"
+            >
+              Home
+            </NuxtLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NuxtLink active-class="text-yellow-300"  to="/faq" class="hover:text-yellow-400">FAQ</NuxtLink>
+            <NuxtLink
+              to="/about-us"
+              active-class="text-amber-300 border-b-2 border-amber-300"
+              class="hover:text-amber-400 transition pb-1"
+            >
+              About
+            </NuxtLink>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NuxtLink
+              to="/products"
+              active-class="text-amber-300 border-b-2 border-amber-300"
+              class="hover:text-amber-400 transition pb-1"
+            >
+              Products
+            </NuxtLink>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NuxtLink
+              to="/contact"
+              active-class="text-amber-300 border-b-2 border-amber-300"
+              class="hover:text-amber-400 transition pb-1"
+            >
+              Contact
+            </NuxtLink>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NuxtLink
+              to="/blog"
+              active-class="text-amber-300 border-b-2 border-amber-300"
+              class="hover:text-amber-400 transition pb-1"
+            >
+              Blog
+            </NuxtLink>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NuxtLink
+              to="/faq"
+              active-class="text-amber-300 border-b-2 border-amber-300"
+              class="hover:text-amber-400 transition pb-1"
+            >
+              FAQ
+            </NuxtLink>
           </NavigationMenuItem>
 
           <!-- Navigation Indicator -->
           <NavigationMenuIndicator
-            class="absolute bg-primary h-1 w-full rounded-md mt-1"
+            class="absolute bg-amber-400 h-1 w-full rounded-md mt-1"
           />
         </NavigationMenuList>
 
@@ -52,8 +84,8 @@ import {
         <NavigationMenuViewport class="relative mt-2" />
       </NavigationMenuRoot>
 
-      <DropdownMenu/>
-
+      <!-- Dropdown Menu for Mobile -->
+      <DropdownMenu />
     </nav>
   </header>
 </template>
@@ -61,8 +93,5 @@ import {
 <style scoped>
 .NavigationMenuIndicator {
   transition: transform 0.2s ease-in-out;
-}
-.absolute {
-  z-index: 50;
 }
 </style>
