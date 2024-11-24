@@ -65,6 +65,7 @@
       </div>
     </div>
   </section>
+  <AmazonIntegration/>
 </template>
 
 <style scoped>

@@ -5,6 +5,7 @@
     <TheHero />
     <TheKeyFeatures />
     <TheTestimonials />
+    <AmazonIntegration/>
   </div>
 </template>
 

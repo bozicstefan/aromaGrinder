@@ -5,6 +5,7 @@
     <TheNavigation />
     <slot />
     <TheFooter />
+    <ScrollToTop/>
   </div>
 </template>
 

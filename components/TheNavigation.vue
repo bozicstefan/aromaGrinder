@@ -9,14 +9,17 @@ import {
 </script>
 
 <template>
-  <header class="bg-gradient-to-br from-amber-900 via-amber-800 to-amber-700 text-white sticky top-0 z-50 shadow-lg">
+  <header
+    class="bg-gradient-to-br from-amber-900 via-amber-800 to-amber-700 text-white sticky top-0 z-50 shadow-lg"
+  >
     <nav class="container mx-auto flex items-center justify-between py-4 px-6">
       <!-- Logo -->
-      <div class="text-2xl font-extrabold text-amber-300 hover:text-amber-400 transition">
+      <div
+        class="text-2xl font-extrabold text-amber-300 hover:text-amber-400 transition"
+      >
         <a href="#">AromaGrinder</a>
       </div>
 
-      <!-- Navigation Menu -->
       <NavigationMenuRoot class="hidden md:flex space-x-6">
         <NavigationMenuList class="flex items-center space-x-6">
           <NavigationMenuItem>
@@ -66,6 +69,15 @@ import {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NuxtLink
+              to="/blog/tags"
+              active-class="text-amber-300 border-b-2 border-amber-300"
+              class="hover:text-amber-400 transition pb-1"
+            >
+              Tags
+            </NuxtLink>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NuxtLink
               to="/faq"
               active-class="text-amber-300 border-b-2 border-amber-300"
               class="hover:text-amber-400 transition pb-1"
@@ -74,13 +86,10 @@ import {
             </NuxtLink>
           </NavigationMenuItem>
 
-          <!-- Navigation Indicator -->
           <NavigationMenuIndicator
             class="absolute bg-amber-400 h-1 w-full rounded-md mt-1"
           />
         </NavigationMenuList>
-
-        <!-- Navigation Viewport -->
         <NavigationMenuViewport class="relative mt-2" />
       </NavigationMenuRoot>
 
