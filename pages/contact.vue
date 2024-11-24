@@ -5,9 +5,9 @@
 <template>
 <section id="contact" class="py-12 bg-amber-50">
   <div class="container mx-auto px-6 lg:px-20">
-    <!-- Section Title -->
+
     <h2 class="text-3xl lg:text-4xl font-bold text-amber-700 text-center mb-8">
-      Contact Us
+   
     </h2>
 
     <!-- Contact Form -->
