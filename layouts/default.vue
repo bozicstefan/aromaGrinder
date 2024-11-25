@@ -1,7 +1,11 @@
-<script setup></script>
+<script setup>
+const modal = ref(null);
+
+</script>
 
 <template>
   <div>
+    <LoadingModal ref="modal"/>
     <TheNavigation />
     <slot />
     <TheFooter />

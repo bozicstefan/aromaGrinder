@@ -109,7 +109,7 @@
               <p>
                 Email:
                 <a href="mailto:info@yourstore.com" class="hover:text-amber-400"
-                  >info@yourstore.com</a
+                  >info@aromagrinder.com</a
                 >
               </p>
               <p>
@@ -118,6 +118,7 @@
                   >+1 234 567 89</a
                 >
               </p>
+              
             </li>
           </ul>
         </div>
