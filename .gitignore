@@ -1,3 +1,6 @@
+#Pocketbase database
+pb/pb_data/
+
 # Nuxt dev/build outputs
 .output
 .data
