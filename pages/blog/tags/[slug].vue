@@ -1,13 +1,13 @@
 <script setup>
 const { params } = useRoute();
+const postsWithTag = ref([])
 
-const { data: postsWithTag } = await useAsyncData("tags", () =>
-  queryContent()
-    .where({ tags: { $contains: params.slug } })
-    .find()
-);
+const {data:res}=useFetch(`/api/posts?tag=${params.slug}`)
+
+postsWithTag.value=res.value
 
 console.log("postsWithTag:", postsWithTag.value);
+
 </script>
 
 <template>
@@ -21,13 +21,13 @@ console.log("postsWithTag:", postsWithTag.value);
       <NuxtLink
         v-for="post in postsWithTag"
         :key="post._id"
-        :to="`/blog${post._path}`"
+        :to="`/blog/${post.slug}`"
         class="group bg-amber-100 p-6 rounded-lg shadow-lg transition-all hover:shadow-xl hover:bg-amber-200"
       >
         <div class="relative">
           <img
             class="w-full h-60 rounded-xl object-cover"
-            :src="`${'/'}${post.cover}`"
+            :src="`${post.coverImage}`"
             alt="Post Cover"
           />
           <div

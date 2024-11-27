@@ -1,6 +1,6 @@
 <script setup>
-const { data: posts } = await useAsyncData("home", () => queryContent().find());
-console.log("posts:", posts.value);
+const res = await $fetch("/api/posts");
+const posts = res.items;
 </script>
 
 <template>

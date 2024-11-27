@@ -1,10 +1,7 @@
 <script setup>
-const { data: postsWithTags } = await useAsyncData("tags", () =>
-  queryContent()
-    .where({ tags: { $exists: true } })
-    .find()
-);
-const allTags = postsWithTags.value.map((post) => post.tags).flat();
+const allTags = ref([]);
+const {data:res}= await useFetch("/api/tags");
+allTags.value = res.value;
 </script>
 
 <template>
@@ -16,14 +13,14 @@ const allTags = postsWithTags.value.map((post) => post.tags).flat();
     </h1>
 
     <div class="flex flex-wrap justify-center gap-4 mb-10">
-      <NuxtLink
+    <NuxtLink
         v-for="tag in allTags"
         :key="tag"
-        :to="`/blog/tags/${tag}`"
+        :to="`/blog/tags/${tag.slug}`"
         class="flex items-center text-sm font-semibold px-4 py-2 bg-amber-100 text-amber-800 rounded-lg shadow-md hover:bg-amber-200 transition-colors duration-200"
       >
         <Icon name="mdi-tag-text-outline" size="1.5rem" class="mr-2" />
-        {{ tag }}
+        {{ tag.name }}
       </NuxtLink>
     </div>
   </div>

@@ -1,17 +1,26 @@
 <script setup>
-const route = useRoute();
-const { data } = await useAsyncData(`blog-${route.params.slug}`, () =>
-  queryContent(`${route.params.slug}`).findOne()
-);
-console.log("data:", data.value);
+const { slug } = useRoute().params;
+const postDetails = ref(null);
+const res = await $fetch(`/api/posts/single/?slug=${slug}`);
 
-useServerSeoMeta({
-  title: data.value.title,
-  ogTitle: data.value.title,
-  description: data.value.description,
-  ogDescription: data.value.description,
-  ogImage: `/${data?.value?.cover}`,
-});
+postDetails.value = res.items[0];
+
+const formattedDate = computed(() => {
+  return new Date(postDetails.value.publishedAt).toLocaleDateString('en-US', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+})
+console.log("postDetails:", postDetails.value);
+
+// useServerSeoMeta({
+//   title: postDetails.value.title,
+//   ogTitle: postDetails.value.title,
+//   description: postDetails.value.description,
+//   ogDescription: postDetails.value.description,
+//   ogImage: `/${postDetails?.value?.coverImage}`,
+// });
 </script>
 
 <template>
@@ -27,26 +36,26 @@ useServerSeoMeta({
         />
       </div>
       <div>
-        <h1 class="text-2xl font-bold text-amber-800">{{ data.title }}</h1>
+        <h1 class="text-2xl font-bold text-amber-800">{{ postDetails.title }}</h1>
         <p class="text-sm text-amber-600">
           By
-          <span class="font-medium">{{ data.author ?? "AromaGrinder" }}</span> |
-          Nov 24, 2024
+          <span class="font-medium">{{  "AromaGrinder" }}</span> |
+          {{formattedDate}}
         </p>
       </div>
     </div>
 
 
-    <div class="text-amber-900 space-y-4">
-      <ContentRenderer :value="data" />
+    <div  class="text-amber-900 space-y-4">
+       <div v-html="postDetails.content"></div>
     </div>
 
 
     <div class="flex flex-wrap gap-2 mt-6">
-      <NuxtLink v-for="tag in data.tags" :key="tag" :to="`/blog/tags/${tag}`">
+      <NuxtLink v-for="tag in postDetails.expand.tags" :key="tag.id" :to="`/blog/tags/${tag.slug}`">
         <span
           class="bg-amber-100 text-amber-800 text-xs px-3 py-1 rounded-full"
-          >{{ tag }}</span
+          >{{ tag.name }}</span
         >
       </NuxtLink>
     </div>

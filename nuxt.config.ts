@@ -6,7 +6,6 @@ export default defineNuxtConfig({
     'radix-vue/nuxt',
     '@nuxtjs/tailwindcss',
     '@nuxt/icon',
-    '@nuxt/content',
     '@formkit/nuxt',
     "@nuxt/scripts",
     "@nuxtjs/turnstile",
