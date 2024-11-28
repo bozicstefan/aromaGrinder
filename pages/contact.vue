@@ -1,16 +1,9 @@
 <script setup>
-import { reset } from '@formkit/core'
+import { reset } from "@formkit/core";
 
-const name = ref("");
-const subject = ref("");
-const email = ref("");
-const phone = ref("");
-const message = ref("");
 const submitted = ref(false);
+const loading = ref(false);
 const errors = ref(null);
-
-const config = useRuntimeConfig();
-const siteKey = config.public.SITE_KEY;
 const isCaptchaValid = ref(false);
 const captchaToken = ref(null);
 let timeout = null;
@@ -25,37 +18,38 @@ const onSolveChallenge = (token) => {
   captchaToken.value = token;
 };
 
-const submitHandler = async () => {
+const submitHandler = async (data) => {
   try {
     clearTimeout(timeout);
+    const body = { ...data, token: captchaToken.value, action: "contact" };
+    loading.value = true;
     const response = await $fetch("/api/sendmail", {
       method: "POST",
-      body: {
-        action: "contact",
-        token: captchaToken.value,
-        name: name.value,
-        subject: subject.value,
-        email: email.value,
-        phone: phone.value,
-        message: message.value,
-      },
+      body,
     });
+
     submitted.value = true;
 
     if (response.success) {
-  resetForm();
+      resetForm();
+      loading.value = false;
     } else {
       errors.value = response;
+      loading.value = false;
     }
   } catch (error) {
     errors.value = error;
+    loading.value = false;
   } finally {
     timeout = setTimeout(() => {
       submitted.value = false;
       errors.value = null;
-    },3000);
+    }, 3000);
   }
 };
+
+// TODO
+// Add pending loader
 </script>
 
 <template>
@@ -74,11 +68,10 @@ const submitHandler = async () => {
           id="contact-form"
           message-class="text-red-500 mt-2 underline"
           :config="{ validationVisibility: 'submit' }"
-          submit-label="Send Message"
+          :submit-label="loading ? 'Sending...' : 'Send Message'"
           actions-class="bg-amber-600 w-[50%] text-center text-white px-6 py-3 rounded-md hover:bg-amber-700 transition-colors"
         >
           <FormKit
-            v-model="name"
             type="text"
             name="name"
             label="Name"
@@ -91,7 +84,6 @@ const submitHandler = async () => {
           />
 
           <FormKit
-            v-model="phone"
             type="tel"
             name="phone"
             label="Phone Number"
@@ -104,7 +96,6 @@ const submitHandler = async () => {
           />
 
           <FormKit
-            v-model="email"
             type="text"
             name="email"
             label="Email"
@@ -117,7 +108,6 @@ const submitHandler = async () => {
           />
 
           <FormKit
-            v-model="subject"
             type="text"
             name="subject"
             label="Subject"
@@ -130,7 +120,6 @@ const submitHandler = async () => {
           />
 
           <FormKit
-            v-model="message"
             type="textarea"
             name="message"
             label="Message"
@@ -143,18 +132,18 @@ const submitHandler = async () => {
           />
 
           <NuxtTurnstile
-          :options="{
-            language: 'en',
-            size:'flexible',
-            callback: (token) => {s
-              onSolveChallenge(token);
-            },
-          }"
-          v-model="captchaToken"
-        />
-
+            :options="{
+              language: 'en',
+              size: 'flexible',
+              callback: (token) => {
+                s;
+                onSolveChallenge(token);
+              },
+            }"
+            v-model="captchaToken"
+          />
         </FormKit>
-        
+
         <p v-if="submitted && !errors" class="text-green-500 mt-4">
           Message sent successfully!
         </p>

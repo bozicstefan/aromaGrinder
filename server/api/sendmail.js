@@ -27,7 +27,8 @@ export default defineEventHandler(async (event) => {
     if (!isValidEmail(body.email)) errors.push("Invalid email format.");
   } else if (body.action === "contact") {
     if (isRequiredFieldEmpty(body.name)) errors.push("Name is required.");
-    if (isRequiredFieldEmpty(body.phone)) errors.push("Phone number is required.");
+    if (isRequiredFieldEmpty(body.phone))
+      errors.push("Phone number is required.");
     if (!isValidPhone(body.phone)) errors.push("Invalid phone number format.");
     if (isRequiredFieldEmpty(body.email)) errors.push("Email is required.");
     if (!isValidEmail(body.email)) errors.push("Invalid email format.");
@@ -44,7 +45,10 @@ export default defineEventHandler(async (event) => {
 
   if (!source) {
     console.error("Template file not found or empty.");
-    throw createError({ statusCode: 500, message: "Email template not found." });
+    throw createError({
+      statusCode: 500,
+      message: "Email template not found.",
+    });
   }
 
   const templateSource = handlebars.compile(source);
@@ -67,7 +71,8 @@ export default defineEventHandler(async (event) => {
   const mailOptions = {
     from: `Aroma Grinder <info@aromagrinder.com>`,
     to: "stefanbozic@protonmail.com",
-    subject: body.action === "contact" ? body.subject : "Newsletter Subscription",
+    subject:
+      body.action === "contact" ? body.subject : "Newsletter Subscription",
     html: renderedHtml,
   };
 

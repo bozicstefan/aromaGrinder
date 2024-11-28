@@ -1,44 +1,44 @@
 <script setup>
 import { reset } from "@formkit/core";
 
-const email = ref("");
 const visible = ref(false);
-
 const submitted = ref(false);
+const loading = ref(false);
 const errors = ref(null);
-
-const config = useRuntimeConfig();
-const siteKey = config.public.SITE_KEY;
 const isCaptchaValid = ref(false);
 const captchaToken = ref(null);
 let timeout = null;
 
 const resetForm = () => {
-  reset("contact-form");
-  email.value = "";
+  reset("subscribe-form");
   captchaToken.value = null;
 };
 
-const handleFormSubmit = async () => {
+const submitHandler = async (data) => {
   try {
+    const body = {
+      ...data,
+      token: captchaToken.value,
+      action: "subscribe",
+    };
+loading.value = true;
     const res = await $fetch("/api/sendmail", {
       method: "POST",
-      body: {
-        action: "subscribe",
-        token: captchaToken.value,
-        email: email.value,
-      },
+      body,
     });
 
     if (res.success) {
       submitted.value = true;
       resetForm();
+      loading.value = false;
       timeout = setTimeout(() => closeModal(), 2000);
     } else {
+      loading.value = false;
       errors.value = res;
     }
   } catch (error) {
     errors.value = error;
+    loading.value = false;
   } finally {
     timeout = setTimeout(() => {
       submitted.value = false;
@@ -59,16 +59,19 @@ const openModal = () => {
 onMounted(() => {
   const hasVisited = localStorage.getItem("hasVisited");
 
-    if (!hasVisited) {
+  if (!hasVisited) {
   openModal();
   localStorage.setItem("hasVisited", "true");
-    }
+  }
 });
 
 const onSolveChallenge = (token) => {
   isCaptchaValid.value = true;
   captchaToken.value = token;
 };
+
+// TODO
+// Add pending loader
 </script>
 
 <template>
@@ -90,16 +93,15 @@ const onSolveChallenge = (token) => {
       </h3>
 
       <FormKit
-        id="contact-form"
+        id="subscribe-form"
         type="form"
-        @submit="handleFormSubmit"
+        @submit="submitHandler"
         class="space-y-4"
-        submit-label="Subscribe"
+        :submit-label="loading ? 'Sending...' : 'Subscribe'"
         actions-class="w-full mt-4 text-center bg-amber-600 text-white py-2 px-4 rounded-lg hover:bg-amber-700 focus:ring focus:ring-amber-400 focus:outline-none transition"
         messages-class="text-red-500 mt-2 underline"
       >
         <FormKit
-          v-model="email"
           type="email"
           name="email"
           label="Your Email"

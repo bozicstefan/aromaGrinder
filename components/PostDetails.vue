@@ -17,6 +17,10 @@ useServerSeoMeta({
   ogDescription: postDetails?.description,
   ogImage: `/${postDetails?.coverImage}`,
 });
+
+// TODO
+// style post content
+// find appropriate article format and stick to it in terms of structure and style
 </script>
 
 <template>
@@ -58,26 +62,26 @@ useServerSeoMeta({
 
 
     <div
-      class="mt-8 border-t border-amber-200 pt-4 flex justify-between items-center"
+  class="mt-8 border-t border-amber-200 pt-4 flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center"
+>
+  <NuxtLink to="/blog">
+    <button
+      class="bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 transition w-full sm:w-auto"
     >
-      <NuxtLink to="/blog">
-        <button
-          class="bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 transition"
-        >
-          More Articles
-        </button>
-      </NuxtLink>
-      <p class="text-sm text-amber-600">
-        Share this article:
-        <a href="#" class="text-amber-700 underline hover:text-amber-800 ml-1"
-          >Facebook</a
-        >
-        |
-        <a href="#" class="text-amber-700 underline hover:text-amber-800"
-          >Twitter</a
-        >
-      </p>
-    </div>
+      More Articles
+    </button>
+  </NuxtLink>
+  <p class="text-sm text-amber-600 text-center sm:text-left">
+    Share this article:
+    <a href="#" class="text-amber-700 underline hover:text-amber-800 ml-1"
+      >Facebook</a
+    >
+    |
+    <a href="#" class="text-amber-700 underline hover:text-amber-800 ml-1"
+      >Twitter</a
+    >
+  </p>
+</div>
   </div>
 </template>
 
