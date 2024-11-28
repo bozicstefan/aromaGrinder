@@ -1,6 +1,7 @@
 <script setup>
-const res = await $fetch("/api/posts");
-const posts = res.items;
+const posts = ref([])
+const {data:res} = await useFetch("/api/posts");
+posts.value = res.value?.items;
 </script>
 
 <template>

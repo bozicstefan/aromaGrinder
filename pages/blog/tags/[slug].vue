@@ -1,20 +1,16 @@
 <script setup>
-const { params } = useRoute();
+const { slug } = useRoute().params;
 const postsWithTag = ref([])
 
-const {data:res}=useFetch(`/api/posts?tag=${params.slug}`)
-
-postsWithTag.value=res.value
-
-console.log("postsWithTag:", postsWithTag.value);
-
+const {data:res}=await useFetch(`/api/posts?tag=${slug}`)
+postsWithTag.value=res.value?.items
 </script>
 
 <template>
   <div class="bg-amber-50 min-h-screen text-amber-900">
     <h1 class="text-3xl font-bold text-center pt-10 mb-12">
       Posts with tag:
-      <span class="text-teal-600 underline">{{ params.slug }}</span>
+      <span class="text-teal-600 underline">{{ slug }}</span>
     </h1>
 
     <section class="grid md:grid-cols-3 gap-10 px-6 md:px-20 mt-10">

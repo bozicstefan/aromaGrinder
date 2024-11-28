@@ -4,7 +4,7 @@
 
 # Backend:
 - podize se sa ./pb/pocketbase serve na localhost:8090/_/
-- m: admin@admin.com p:Admin123$$
+- m: info@aromagrinder.com p:Admin123$$
 - moze da se radi import/export db backup
 - moze da se radi export/import db schema
 

@@ -1,26 +1,22 @@
 <script setup>
-const { slug } = useRoute().params;
-const postDetails = ref(null);
-const res = await $fetch(`/api/posts/single/?slug=${slug}`);
-
-postDetails.value = res.items[0];
+const {postDetails} = defineProps(["postDetails"])
 
 const formattedDate = computed(() => {
-  return new Date(postDetails.value.publishedAt).toLocaleDateString('en-US', {
+  return new Date(postDetails.publishedAt).toLocaleDateString('en-US', {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
   });
 })
-console.log("postDetails:", postDetails.value);
+console.log("postDetails:", postDetails);
 
-// useServerSeoMeta({
-//   title: postDetails.value.title,
-//   ogTitle: postDetails.value.title,
-//   description: postDetails.value.description,
-//   ogDescription: postDetails.value.description,
-//   ogImage: `/${postDetails?.value?.coverImage}`,
-// });
+useServerSeoMeta({
+  title: postDetails?.title,
+  ogTitle: postDetails?.title,
+  description: postDetails?.description,
+  ogDescription: postDetails?.description,
+  ogImage: `/${postDetails?.coverImage}`,
+});
 </script>
 
 <template>

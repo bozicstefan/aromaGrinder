@@ -60,11 +60,13 @@ export default defineEventHandler({
       } else if (tag) {
         try {
           const postsByTags = await $fetch(
-            `${pocketBaseURL}/api/collections/posts/records?expand=category,author,tags&filter=(tags.name?~%22${(
+            `${pocketBaseURL}/api/collections/posts/records?expand=category,author,tags&filter=(tags.slug?~%22${(
               tag
             )}%22)`
           );
-          return structuredClone(postsByTags.items);
+
+          console.log("postsByTags:", postsByTags);
+          return structuredClone(postsByTags);
         } catch (error) {
           console.error("Error fetching posts by tag:", error);
           throw createError({
