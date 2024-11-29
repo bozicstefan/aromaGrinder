@@ -20,54 +20,42 @@ useServerSeoMeta({
 </script>
 
 <template>
-  <section class="bg-amber-50  sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] mx-auto rounded-lg shadow-lg my-10 ">
-    <article>
-      <div
-    class="relative bg-cover bg-center rounded-ss-lg rounded-se-lg shadow-lg overflow-hidden h-[20rem] flex flex-col items-start justify-end"
-    :style="{ backgroundImage: `url(${postDetails.coverImage})` }"
+  <section
+    class="bg-amber-50 sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] mx-auto rounded-lg shadow-lg my-10"
   >
-    <div class="absolute inset-0 bg-amber-900 bg-opacity-40"></div>
+    <article>
+      <header
+        class="relative bg-cover bg-center rounded-ss-lg rounded-se-lg shadow-lg overflow-hidden h-[20rem] flex flex-col items-start justify-end"
+        :style="{ backgroundImage: `url(${postDetails.coverImage})` }"
+      >
+        <div class="absolute inset-0 bg-amber-900 bg-opacity-40"></div>
 
-   
-    <header class="relative flex items-center gap-4 p-6 bg-amber-50 bg-opacity-90 rounded-lg m-4">
-      <div class="bg-amber-200 text-amber-900 p-[2px] rounded-full">
-        <img
-          class="w-12 h-12 rounded-full avatar"
-          src="http://www.thispersondoesnotexist.com"
-          alt="author"
-        />
-      </div>
-      <div>
-        <h1 class="text-2xl font-bold text-amber-800">
-          {{ postDetails.title }}
-        </h1>
-        <p class="text-sm text-amber-600">
-          By <span class="font-medium">{{ "AromaGrinder" }}</span> | {{ formattedDate }}
-        </p>
-      </div>
-    </header>
-  </div>
-      <!-- <header class="flex items-center gap-4 mb-6">
-        <div class="bg-amber-200 text-amber-900 p-[2px] rounded-full">
-          <img
-            class="w-12 h-12 rounded-full avatar"
-            src="http://www.thispersondoesnotexist.com"
-            alt="author"
-          />
+        <div
+          class="relative flex items-center gap-4 p-6 bg-amber-50 bg-opacity-90 rounded-lg m-4"
+        >
+          <div class="bg-amber-200 text-amber-900 p-[2px] rounded-full">
+            <img
+              class="w-12 h-12 rounded-full avatar"
+              src="http://www.thispersondoesnotexist.com"
+              alt="author"
+            />
+          </div>
+          <div>
+            <h1 class="text-2xl font-bold text-amber-800">
+              {{ postDetails.title }}
+            </h1>
+            <p class="text-sm text-amber-600">
+              By <span class="font-medium">{{ "AromaGrinder" }}</span> |
+              {{ formattedDate }}
+            </p>
+          </div>
         </div>
-        <div>
-          <h1 class="text-2xl font-bold text-amber-800">
-            {{ postDetails.title }}
-          </h1>
-          <p class="text-sm text-amber-600">
-            By
-            <span class="font-medium">{{ "AromaGrinder" }}</span> |
-            {{ formattedDate }}
-          </p>
-        </div>
-      </header> -->
+      </header>
 
-      <section v-html="postDetails.content" class="post-content px-6 mt-10 text-justify text-amber-900 space-y-4 border-b border-amber-200"></section>
+      <section
+        v-html="postDetails.content"
+        class="post-content px-6 mt-10 text-amber-900 space-y-4 border-b border-amber-200"
+      ></section>
 
       <div class="flex flex-wrap gap-4 mt-10 ps-6">
         <NuxtLink
@@ -107,28 +95,32 @@ useServerSeoMeta({
 </template>
 
 <style scoped>
-
-html{
+html {
   scroll-behavior: smooth;
 }
 
 a span {
-  font-size: 1.125rem; 
-  padding: 0.5rem 1rem; 
+  font-size: 1.125rem;
+  padding: 0.5rem 1rem;
 }
 
 a span:hover {
-  background-color: #fbbf24; 
+  background-color: #fbbf24;
   color: #5f3f00;
 }
 
 /* Scoped styles won’t work with v-html, so using ::v-deep(with custom post-content class' styles instead. */
 
-::v-deep(.post-content p:first-child::first-letter){
-  font-size: 3rem; 
-  font-weight: bold;  color: #f59e0b;
-  float: left; 
-  margin-right: 0.25rem; 
+::v-deep(.post-content p, .post-content h2, .post-content h3, .post-content h4) {
+ text-align: justify;
+}
+
+::v-deep(.post-content p:first-child::first-letter) {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #f59e0b;
+  float: left;
+  margin-right: 0.25rem;
   line-height: 1;
 }
 
@@ -148,7 +140,9 @@ a span:hover {
   color: #d97706;
 }
 
-::v-deep(.post-content h2), ::v-deep(.post-content h3), ::v-deep(.post-content h4) {
+::v-deep(.post-content h2),
+::v-deep(.post-content h3),
+::v-deep(.post-content h4) {
   color: #9a7b49;
 }
 
@@ -156,13 +150,14 @@ a span:hover {
   font-size: 1.875rem;
 }
 
-::v-deep(.post-content ul), ::v-deep(.post-content ol) {
+::v-deep(.post-content ul),
+::v-deep(.post-content ol) {
   padding-left: 1.25rem;
   margin-bottom: 1.5rem;
 }
 
 ::v-deep(.post-content .toc) {
-  background-color: #FEFEFE;
+  background-color: #fefefe;
   width: fit-content;
   padding: 1rem;
   border-radius: 8px;
@@ -172,10 +167,10 @@ a span:hover {
 
 ::v-deep(.post-content .toc h2) {
   font-size: 1.25rem;
-  margin-bottom: .75rem;
+  margin-bottom: 0.75rem;
 }
 
-::v-deep(.post-content .toc ul)  {
+::v-deep(.post-content .toc ul) {
   list-style-type: decimal;
   text-align: start;
 }
@@ -185,7 +180,7 @@ a span:hover {
 }
 
 ::v-deep(.post-content blockquote) {
-  background-color: #fff3e0; 
+  background-color: #fff3e0;
   border-left: 4px solid #f59e0b;
   padding: 1rem;
   margin-bottom: 1.5rem;
@@ -206,7 +201,7 @@ a span:hover {
   color: #6d4c41;
   padding: 1rem;
   border-radius: 8px;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   margin-bottom: 1.5rem;
 }
 
@@ -224,7 +219,8 @@ a span:hover {
   margin-bottom: 1.5rem;
 }
 
-::v-deep(.post-content th), ::v-deep(.post-content td) {
+::v-deep(.post-content th),
+::v-deep(.post-content td) {
   padding: 0.75rem;
   text-align: left;
   border: 1px solid #f59e0b;
@@ -239,10 +235,9 @@ a span:hover {
   background-color: #f7f1e3;
 }
 
-::v-deep(.post-content hr){
+::v-deep(.post-content hr) {
   border-top: 1px solid #f59e0b;
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
 </style>
-
