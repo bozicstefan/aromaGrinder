@@ -164,11 +164,11 @@ const currentTestimonial = computed(() => Testimonials[currentIndex.value]);
         </div>
       </div>
 
-      <div class="mt-12">
+      <div class="mt-12 ">
         <h3 class="text-xl font-semibold text-gray-800 mb-4">
           Ready to get yours?
         </h3>
-        <div class="space-x-4">
+        <div class="space-x-4 flex flex-col items-center align-items-center gap-6 sm:block">
           <a
             href="https://www.amazon.com"
             target="_blank"
