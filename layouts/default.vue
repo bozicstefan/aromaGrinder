@@ -1,16 +1,15 @@
 <script setup>
 const modal = ref(null);
-
 </script>
 
 <template>
-  <div>
-    <LoadingModal ref="modal"/>
+  <main>
+    <LoadingModal ref="modal" />
     <TheNavigation />
-    <slot />
-    <TheFooter />
-    <ScrollToTop/>
-  </div>
+   <slot />
+  <TheFooter />
+    <ScrollToTop />
+  </main>
 </template>
 
 <style scoped></style>

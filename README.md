@@ -20,3 +20,25 @@
 
 # lokalni .env:
 - POCKETBASE_URL=http://localhost:8090
+
+
+### Prompt za post template:
+----------------------------------
+Make me a blog post on "TOPIC HERE" where:
+- length is approx 1500 characters
+- the template has following structure (DO NOT ADD STYLES OR ALTERNATE STRUCTURE!!!):
+
+<section>
+<p>intro paragraph</p>
+<div class='toc'>
+<h2>Table of contents:</h2>
+<ul>
+<li>
+<a>Linked subheading elements</a>
+</li>
+</ul>
+</div>
+{{BlogPost without h1 title, with h2 subtitles and text}} 
+<section>for related posts if any</section> 
+</section>
+----------------------------------
