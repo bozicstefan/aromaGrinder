@@ -6,7 +6,7 @@ const { post } = defineProps(["post"]);
   <article
     class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
   >
-    <img :src="post?.coverImage ?? 'grinder.jpg'"  :alt="post.title" class="w-full h-48 object-cover" />
+    <img :src="post?.coverImage ?? 'grinder.jpg'"  :alt="post.title" :title="post?.title" loading="eager" width="400" height="400" class="w-full h-48 object-cover" />
     <div class="p-6">
       <h3 class="text-xl font-semibold text-amber-900 mb-2">
         {{ post.title }}

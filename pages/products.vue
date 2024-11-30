@@ -1,24 +1,28 @@
 <script setup>
+useSeoMeta({
+  ogDescription: "Discover the best coffee grinder for your home and office. Our product is made from high-quality materials and has a wide range of features to suit your needs.",
+  description: "Discover the best coffee grinder for your home and office. Our product is made from high-quality materials and has a wide range of features to suit your needs.",
+})
 const buyNowLink = "https://www.amazon.com/example-product";
 </script>
 
 <template>
   <section class="bg-amber-50 py-12">
-    <div class="container mx-auto px-6 lg:px-16">
+    <div class="container mx-auto px-6 py-12 lg:px-16">
       <!-- Product Images Section -->
       <div class="mb-12">
-        <h2 class="text-2xl font-semibold text-amber-900 mb-4">Product Details</h2>
+        <h1 class="text-4xl font-bold text-amber-900 mb-8">Products we offer today</h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <img src="/grinder.jpg" alt="Product angle 1" class="rounded-lg shadow-md">
-          <img src="/grinder.jpg" alt="Product angle 2" class="rounded-lg shadow-md">
-          <img src="/grinder.jpg" alt="Product angle 3" class="rounded-lg shadow-md">
-          <img src="/grinder.jpg" alt="Product angle 4" class="rounded-lg shadow-md">
+          <img src="/grinder.jpg" title="product" alt="Product angle 1" loading="eager" width="400" height="400" class="rounded-lg shadow-md">
+          <img src="/grinder.jpg" title="product" alt="Product angle 2" loading="eager" width="400" height="400" class="rounded-lg shadow-md">
+          <img src="/grinder.jpg" title="product" alt="Product angle 3" loading="eager" width="400" height="400" class="rounded-lg shadow-md">
+          <img src="/grinder.jpg" title="product" alt="Product angle 4" loading="eager" width="400" height="400" class="rounded-lg shadow-md">
         </div>
       </div>
 
       <!-- Product Description -->
       <div class="mb-12">
-        <h3 class="text-xl font-semibold text-amber-900 mb-4">Description</h3>
+        <h2 class="text-xl font-semibold text-amber-900 mb-4">Description</h2>
         <p class="text-amber-800">
           Our product is made from high-quality materials. 
           The dimensions are ideal for everyday use. Key advantages include durability, 
@@ -28,7 +32,7 @@ const buyNowLink = "https://www.amazon.com/example-product";
 
       <!-- Video Section -->
       <div class="mb-12">
-        <h3 class="text-xl font-semibold text-amber-900 mb-4">Video Showcase</h3>
+        <h2 class="text-xl font-semibold text-amber-900 mb-4">Video Showcase</h2>
         <div class="aspect-w-16 aspect-h-9 rounded-lg shadow-md overflow-hidden">
           <iframe
             src="https://www.youtube.com/embed/example-video-id"
@@ -41,7 +45,7 @@ const buyNowLink = "https://www.amazon.com/example-product";
 
       <!-- Specifications Section -->
       <div class="mb-12">
-        <h3 class="text-xl font-semibold text-amber-900 mb-4">Specifications</h3>
+        <h2 class="text-xl font-semibold text-amber-900 mb-4">Specifications</h2>
         <ul class="text-amber-800 space-y-2">
           <li><strong>Package Dimensions:</strong> 24.5 × 13.5 × 7.4 cm</li>
           <li><strong>Materials:</strong> Stainless Steel, Wood</li>

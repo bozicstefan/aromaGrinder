@@ -1,6 +1,16 @@
 <script setup>
 import { reset } from "@formkit/core";
 
+
+useSeoMeta({
+  ogDeterminer: "the",
+  title: "Aroma Grinder - Contact Us",
+  description: "Get in touch with Aroma Grinder for any inquiries or feedback. We value your input and are here to assist you.",
+  ogTitle: "Aroma Grinder - Contact Us",
+  ogDescription: "Get in touch with Aroma Grinder for any inquiries or feedback. We value your input and are here to assist you.",
+})
+
+
 const submitted = ref(false);
 const loading = ref(false);
 const errors = ref(null);
@@ -48,18 +58,16 @@ const submitHandler = async (data) => {
   }
 };
 
-// TODO
-// Add pending loader
 </script>
 
 <template>
-  <section id="contact" class="py-12 bg-amber-50">
-    <div class="container mx-auto px-6 lg:px-20">
-      <h2
-        class="text-3xl lg:text-4xl font-bold text-amber-700 text-center mb-8"
+  <section id="contact" class="py-20 bg-amber-50">
+    <div class="container mx-auto px-6 lg:px-18">
+      <h1
+        class="text-3xl lg:text-4xl font-bold text-amber-900 text-center mb-24"
       >
-        Contact Us
-      </h2>
+        Get in touch with Aroma Grinder
+      </h1>
 
       <div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-6">
         <FormKit
@@ -150,7 +158,7 @@ const submitHandler = async (data) => {
         <p v-if="errors" class="text-red-500 mt-4">{{ errors }}</p>
       </div>
 
-      <div class="text-center mt-10">
+      <div class="text-center mt-24">
         <h3 class="text-xl font-semibold text-amber-700 mb-4">Follow Us</h3>
         <div class="flex justify-center space-x-6">
           <a
@@ -174,9 +182,9 @@ const submitHandler = async (data) => {
         <p class="text-gray-700">
           Have questions? Contact us at
           <a
-            href="mailto:support@aromagrinder.com"
+            href="mailto:info@aromagrinder.com"
             class="text-amber-600 hover:underline"
-            >support@aromagrinder.com</a
+            >info@aromagrinder.com</a
           >.
         </p>
       </div>

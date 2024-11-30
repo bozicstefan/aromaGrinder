@@ -34,7 +34,11 @@
       <div class="w-full max-w-lg">
         <img
           src="/public/grinder.jpg"
-          alt="Person grinding coffee"
+          alt="coffee grinder"
+          title="coffee grinder"
+          loading="eager"
+          width="500"
+          height="500"
           class="shadow-lg rounded-lg transform hover:scale-105 transition duration-500"
         />
       </div>

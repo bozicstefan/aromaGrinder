@@ -8,14 +8,30 @@ const formattedDate = computed(() => {
     year: "numeric",
   });
 });
-// console.log("postDetails:", postDetails);
 
-useServerSeoMeta({
-  title: postDetails?.title,
+useSeoMeta({
+  author: "Aroma Grinder",
+  publisher: "Aroma Grinder",
+  creator: "Aroma Grinder",
+  title: `Aroma Grinder - ${postDetails?.title}`,
   ogTitle: postDetails?.title,
   description: postDetails?.description,
   ogDescription: postDetails?.description,
-  ogImage: `/${postDetails?.coverImage}`,
+  articleAuthor: postDetails?.author,
+  articleSection: postDetails?.expand.category[0].name,
+  articlePublishedTime: postDetails?.publishedAt,
+  articleTags: postDetails?.expand.tags.map((tag) => tag.name),
+  ogTitle: postDetails?.title,
+  ogUrl: `https://aromagrinder.com/blog/${postDetails?.slug}`,
+  ogType: "article",
+  ogSiteName: "AromaGrinder",
+  ogLocale: "en_US",
+  ogImage: `${postDetails?.coverImage}`,
+  twitterCard: "summary_large_image",
+  twitterTitle: postDetails?.title,
+  twitterDescription: postDetails?.description,
+  twitterImage: `${postDetails?.coverImage}`,
+  twitterImageAlt: postDetails?.title,
 });
 </script>
 
@@ -36,7 +52,7 @@ useServerSeoMeta({
           <div class="bg-amber-200 text-amber-900 p-[2px] rounded-full">
             <img
               class="w-12 h-12 rounded-full avatar"
-              src="http://www.thispersondoesnotexist.com"
+              src="/grinder.jpg"
               alt="author"
             />
           </div>
@@ -111,8 +127,13 @@ a span:hover {
 
 /* Scoped styles won’t work with v-html, so using ::v-deep(with custom post-content class' styles instead. */
 
-::v-deep(.post-content p, .post-content h2, .post-content h3, .post-content h4) {
- text-align: justify;
+::v-deep(
+    .post-content p,
+    .post-content h2,
+    .post-content h3,
+    .post-content h4
+  ) {
+  text-align: justify;
 }
 
 ::v-deep(.post-content p:first-child::first-letter) {

@@ -1,4 +1,11 @@
 <script setup>
+useSeoMeta({
+  title: "Aroma Grinder - Blog Tags",
+  description: "Discover the latest news and updates on Aroma Grinder and our coffee brewing products.",
+  ogTitle: "Aroma Grinder - Blog Tags",
+  ogDescription: "Discover the latest news and updates on Aroma Grinder and our coffee brewing products.",
+})
+
 const { slug } = useRoute().params;
 const postsWithTag = ref([])
 
@@ -8,7 +15,7 @@ postsWithTag.value=res.value?.items
 
 <template>
   <div class="bg-amber-50 min-h-screen text-amber-900">
-    <h1 class="text-3xl font-bold text-center pt-10 mb-12">
+    <h1 class="text-3xl font-bold text-center pt-16 mb-12">
       Posts with tag:
       <span class="text-teal-600 underline">{{ slug }}</span>
     </h1>
@@ -23,9 +30,14 @@ postsWithTag.value=res.value?.items
         <div class="relative">
           <img
             class="w-full h-60 rounded-xl object-cover"
-            :src="`${post.coverImage}`"
-            alt="Post Cover"
+            :src="`${post?.coverImage}`"
+            :alt="post?.title"
+            loading="eager"
+            width="400"
+            height="400"
+            :title="post?.title"
           />
+
           <div
             class="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black opacity-50 rounded-xl"
           ></div>

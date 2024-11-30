@@ -19,10 +19,10 @@
 </script>
 
 <template>
-    <section class="py-12 bg-gray-50">
+    <section class="py-20 bg-gray-50">
       <div class="container mx-auto px-6 lg:px-20">
  
-        <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 text-center mb-8">
+        <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 text-center mb-4">
           Find us on Amazon
         </h2>
   
@@ -39,8 +39,8 @@
         </div>
   
    
-        <div class="mt-10">
-          <h3 class="text-xl font-semibold text-gray-700 text-center mb-6">
+        <div class="mt-16">
+          <h3 class="text-xl font-semibold text-gray-700 text-center mb-4">
             Customer Reviews
           </h3>
           <div class="bg-white shadow rounded-lg p-6">

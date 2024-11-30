@@ -1,4 +1,11 @@
 <script setup>
+useSeoMeta({
+  title: "Aroma Grinder - Blog Tags",
+  description: "Discover the latest news and updates on Aroma Grinder and our coffee brewing products.",
+  ogTitle: "Aroma Grinder - Blog Tags",
+  ogDescription: "Discover the latest news and updates on Aroma Grinder and our coffee brewing products.",
+})
+
 const allTags = ref([]);
 const {data:res}= await useFetch("/api/tags");
 allTags.value = res.value;
@@ -7,9 +14,9 @@ allTags.value = res.value;
 <template>
   <div class="bg-amber-50 min-h-screen">
     <h1
-      class="text-3xl font-bold text-center text-amber-800 pt-10 mb-12 underline"
+      class="text-4xl font-bold text-center text-amber-900 pt-20 mb-20"
     >
-      All Blog Tags
+    Latest Blog Posts Tags by Aroma Grinder
     </h1>
 
     <div class="flex flex-wrap justify-center gap-4 mb-10">
