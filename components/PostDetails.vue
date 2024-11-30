@@ -37,11 +37,11 @@ useSeoMeta({
 
 <template>
   <section
-    class="bg-amber-50 sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] mx-auto rounded-lg shadow-lg my-10"
+    class="bg-amber-50 sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%] mx-auto rounded-lg shadow-lg sm:my-10"
   >
     <article>
       <header
-        class="relative bg-cover bg-center rounded-ss-lg rounded-se-lg shadow-lg overflow-hidden h-[20rem] flex flex-col items-start justify-end"
+        class="relative bg-cover bg-center sm:rounded-ss-lg sm:rounded-se-lg shadow-lg overflow-hidden h-[20rem] flex flex-col items-start justify-end"
         :style="{ backgroundImage: `url(${postDetails.coverImage})` }"
       >
         <div class="absolute inset-0 bg-amber-900 bg-opacity-40"></div>

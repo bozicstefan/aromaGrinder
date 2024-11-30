@@ -9,9 +9,9 @@
     >
       <div class="px-4 text-center md:text-left max-w-lg space-y-6">
         <h1 class="text-5xl font-extrabold leading-tight text-amber-100">
-          Aroma Grinder - Perfect Coffee
+          <img src="/aroma-grinder-logo.webp" alt="Aroma Grinder Logo" class="h-26"/> 
           <br />
-          <span class="text-amber-300">Starts Here</span>
+          Perfect Coffee <span class="text-amber-300">Starts Here</span>
         </h1>
         <p class="text-amber-200 text-lg">
           Experience the art of coffee grinding with precision and care. Unleash
@@ -19,12 +19,12 @@
         </p>
         <div class="space-x-4">
           <button
-            class="bg-amber-500 text-white px-6 py-3 rounded-md hover:bg-amber-400 transition"
+            class="bg-amber-500 text-white px-6 py-3 rounded-md hover:bg-amber-900 transition"
           >
             Shop Coffee Grinders
           </button>
           <button
-            class="bg-amber-700 text-white px-6 py-3 rounded-md hover:bg-amber-600 transition"
+            class="bg-amber-600 text-white px-6 py-3 rounded-md hover:bg-amber-900 transition"
           >
             Learn More
           </button>

@@ -7,7 +7,7 @@ const buyNowLink = "https://www.amazon.com/example-product";
 </script>
 
 <template>
-  <section class="bg-amber-50 py-12">
+  <section class="bg-amber-100 py-12">
     <div class="container mx-auto px-6 py-12 lg:px-16">
       <!-- Product Images Section -->
       <div class="mb-12">

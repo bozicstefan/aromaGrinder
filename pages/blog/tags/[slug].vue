@@ -5,54 +5,25 @@ useSeoMeta({
   ogTitle: "Aroma Grinder - Blog Tags",
   ogDescription: "Discover the latest news and updates on Aroma Grinder and our coffee brewing products.",
 })
-
 const { slug } = useRoute().params;
 const postsWithTag = ref([])
-
 const {data:res}=await useFetch(`/api/posts?tag=${slug}`)
 postsWithTag.value=res.value?.items
 </script>
 
 <template>
-  <div class="bg-amber-50 min-h-screen text-amber-900">
-    <h1 class="text-3xl font-bold text-center pt-16 mb-12">
-      Posts with tag:
+  <section class="bg-amber-100 text-amber-900 py-4">
+    <div class="container mx-auto px-6 lg:px-16 pb-20">
+      <h1 class="text-4xl font-bold text-center pt-16 mb-20">
+      Aroma Grinder Blog Posts with tag:
       <span class="text-teal-600 underline">{{ slug }}</span>
     </h1>
-
-    <section class="grid md:grid-cols-3 gap-10 px-6 md:px-20 mt-10">
-      <NuxtLink
-        v-for="post in postsWithTag"
-        :key="post._id"
-        :to="`/blog/${post.slug}`"
-        class="group bg-amber-100 p-6 rounded-lg shadow-lg transition-all hover:shadow-xl hover:bg-amber-200"
-      >
-        <div class="relative">
-          <img
-            class="w-full h-60 rounded-xl object-cover"
-            :src="`${post?.coverImage}`"
-            :alt="post?.title"
-            loading="eager"
-            width="400"
-            height="400"
-            :title="post?.title"
-          />
-
-          <div
-            class="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black opacity-50 rounded-xl"
-          ></div>
-        </div>
-        <h2
-          class="text-xl text-center mt-4 text-amber-800 group-hover:text-amber-900 font-semibold"
-        >
-          {{ post.title }}
-        </h2>
-        <p class="text-center mt-2 text-amber-600 group-hover:text-amber-700">
-          {{ post.description }}
-        </p>
-      </NuxtLink>
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <BlogPost v-for="post in postsWithTag" :key="post.id" :post="post" />
     </section>
-  </div>
+    </div>
+  </section>
+  <AmazonIntegration/>
 </template>
 
 <style scoped></style>

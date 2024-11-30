@@ -64,8 +64,6 @@ export default defineEventHandler({
               tag
             )}%22)`
           );
-
-          console.log("postsByTags:", postsByTags);
           return structuredClone(postsByTags);
         } catch (error) {
           console.error("Error fetching posts by tag:", error);

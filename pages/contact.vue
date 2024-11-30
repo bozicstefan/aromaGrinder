@@ -61,10 +61,10 @@ const submitHandler = async (data) => {
 </script>
 
 <template>
-  <section id="contact" class="py-20 bg-amber-50">
+  <section id="contact" class="py-20 bg-amber-100">
     <div class="container mx-auto px-6 lg:px-18">
       <h1
-        class="text-3xl lg:text-4xl font-bold text-amber-900 text-center mb-24"
+        class="text-4xl lg:text-4xl font-bold text-amber-900 text-center mb-24"
       >
         Get in touch with Aroma Grinder
       </h1>

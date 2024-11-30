@@ -11,21 +11,18 @@ useSeoMeta({
 const posts = ref([])
 const {data:res} = await useFetch("/api/posts");
 posts.value = res.value?.items;
+console.log('posts:', posts.value);
 </script>
 
 <template>
     <section class="bg-amber-100 py-20">
       <div class="container mx-auto px-6 lg:px-16">
-        <!-- Section Title -->
         <h1 class="text-4xl font-bold text-amber-900 mb-20 text-center">
           Latest Blog Posts by Aroma Grinder
         </h1>
-  
-        <!-- Blog Post Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Single Blog Post -->
-        <BlogPost v-for="post in posts" :key="post._id" :post="post"/>
-        </div>
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <BlogPost v-for="post in posts" :key="post.id" :post="post"/>
+        </section>
       </div>
     </section>
     <AmazonIntegration/>

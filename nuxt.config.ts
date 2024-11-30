@@ -1,5 +1,45 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  telemetry: false,
+  compatibilityDate: "2024-11-01",
+  devtools: { enabled: true },
+  modules: [
+    "radix-vue/nuxt",
+    "@nuxtjs/tailwindcss",
+    "@nuxt/icon",
+    "@formkit/nuxt",
+    "@nuxt/scripts",
+    "@nuxtjs/turnstile",
+  ],
+  nitro: {
+    minify: true,
+    compressPublicAssets: true,
+
+    storage: {
+      "assets:server": {
+        driver: "fs",
+        base: "./assets",
+      },
+    },
+  },
+  turnstile: {
+    siteKey: process.env.NUXT_PUBLIC_TURNSTILE_SITE_KEY,
+    addValidateEndpoint: true,
+  },
+  runtimeConfig: {
+    public: {
+      websiteURL: process.env.NUXT_PUBLIC_WEBSITE_URL,
+    },
+    turnstile: {
+      secretKey: process.env.NUXT_TURNSTILE_SECRET_KEY,
+    },
+    CDN_URL: "",
+    MAILER_USER: process.env.MAILER_USER,
+    MAILER_PASSWORD: process.env.MAILER_PASSWORD,
+  },
+  formkit: {
+    configFile: "./formkit.config.js",
+  },
   app: {
     head: {
       charset: "utf-8",
@@ -40,13 +80,13 @@ export default defineNuxtConfig({
           rel: "icon",
           type: "image/png",
           sizes: "32x32",
-          href: "/grinder-icon.png",
+          href: "/AG-32.png",
         },
         {
           rel: "icon",
           type: "image/png",
           sizes: "16x16",
-          href: "/grinder-icon.png",
+          href: "/AG-16.png",
         },
         {
           rel: "canonical",
@@ -54,47 +94,5 @@ export default defineNuxtConfig({
         },
       ],
     },
-  },
-  compatibilityDate: "2024-11-01",
-  devtools: { enabled: true },
-  modules: [
-    "radix-vue/nuxt",
-    "@nuxtjs/tailwindcss",
-    "@nuxt/icon",
-    "@formkit/nuxt",
-    "@nuxt/scripts",
-    "@nuxtjs/turnstile",
-  ],
-
-  turnstile: {
-    siteKey: process.env.NUXT_PUBLIC_TURNSTILE_SITE_KEY,
-    addValidateEndpoint: true,
-  },
-  runtimeConfig: {
-    public: {
-      websiteURL: process.env.NUXT_PUBLIC_WEBSITE_URL,
-    },
-    turnstile: {
-      secretKey: process.env.NUXT_TURNSTILE_SECRET_KEY,
-    },
-    CDN_URL: "",
-    MAILER_USER: process.env.MAILER_USER,
-    MAILER_PASSWORD: process.env.MAILER_PASSWORD,
-  },
-
-  nitro: {
-    minify: true,
-    compressPublicAssets: true,
-
-    storage: {
-      "assets:server": {
-        driver: "fs",
-        base: "./assets",
-      },
-    },
-  },
-
-  formkit: {
-    configFile: "./formkit.config.js",
   },
 });
