@@ -80,13 +80,13 @@ export default defineNuxtConfig({
           rel: "icon",
           type: "image/png",
           sizes: "32x32",
-          href: "/AG-32.png",
+          href: "/grinder-icon.png",
         },
         {
           rel: "icon",
           type: "image/png",
           sizes: "16x16",
-          href: "/AG-16.png",
+          href: "/grinder-icon.png",
         },
         {
           rel: "canonical",
@@ -95,4 +95,12 @@ export default defineNuxtConfig({
       ],
     },
   },
+
+  routeRules:{
+   '/':{prerender: true},
+   '/about-us':{prerender: true},
+   '/products':{prerender: true},
+   '/blog/**':{prerender: true, swr: true},
+   '/faq':{prerender: true},
+  }
 });

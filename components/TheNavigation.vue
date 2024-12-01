@@ -13,7 +13,7 @@ import {
     class="bg-gradient-to-br from-amber-900 via-amber-800 to-amber-700 text-white sticky top-0 z-50 shadow-lg"
   >
     <nav class="container mx-auto flex items-center justify-between py-4 px-6">
-      <!-- Logo -->
+ 
       <div
         class="text-2xl font-extrabold text-amber-300 hover:text-amber-400 transition"
       >
