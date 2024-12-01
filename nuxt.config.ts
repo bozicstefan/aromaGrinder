@@ -96,11 +96,11 @@ export default defineNuxtConfig({
     },
   },
 
-  routeRules:{
-   '/':{prerender: true},
-   '/about-us':{prerender: true},
-   '/products':{prerender: true},
-   '/blog/**':{prerender: true, swr: true},
-   '/faq':{prerender: true},
-  }
+  routeRules: {
+    "/": { prerender: true },
+    "/about-us": { prerender: true },
+    "/products": { prerender: true },
+    "/blog/**": { prerender: true, swr: true },
+    "/faq": { prerender: true },
+  },
 });

@@ -17,7 +17,7 @@ import {
       <div
         class="text-2xl font-extrabold text-amber-300 hover:text-amber-400 transition"
       >
-        <img src="/aroma-grinder-logo.webp" alt="Aroma Grinder Logo"  class="h-16"/>
+        <img src="/aroma-grinder-logo.webp" loading="eager" title="Aroma Grinder Logo" alt="Aroma Grinder Logo"  class="h-16"/>
       </div>
 
       <NavigationMenuRoot class="hidden md:flex space-x-6">

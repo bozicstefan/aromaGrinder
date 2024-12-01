@@ -9,7 +9,7 @@
     >
       <div class="px-4 text-center md:text-left max-w-lg space-y-6">
         <h1 class="text-5xl font-extrabold leading-tight text-amber-100">
-          <img src="/aroma-grinder-logo.webp" alt="Aroma Grinder Logo" class="h-26"/> 
+          <img src="/aroma-grinder-logo.webp" loading="eager" title="Aroma Grinder Logo" alt="Aroma Grinder Logo" class="h-26"/> 
           <br />
           Perfect Coffee <span class="text-amber-300">Starts Here</span>
         </h1>
