@@ -15,9 +15,9 @@ console.log('posts:', posts.value);
 </script>
 
 <template>
-    <section class="bg-amber-100 py-20">
+    <section class="bg-[#fffacb] py-20">
       <div class="container mx-auto px-6 lg:px-16">
-        <h1 class="text-4xl font-bold text-amber-900 mb-20 text-center">
+        <h1 class="text-4xl font-bold text-[#236160] mb-20 text-center">
           Latest Blog Posts by Aroma Grinder
         </h1>
         <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -25,7 +25,7 @@ console.log('posts:', posts.value);
         </section>
       </div>
     </section>
-    <AmazonIntegration/>
+    <AmazonIntegration bgColor="#d0a465"/>
   </template>
   
 

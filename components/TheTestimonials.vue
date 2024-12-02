@@ -93,30 +93,30 @@ const currentTestimonial = computed(() => Testimonials[currentIndex.value]);
 </script>
 
 <template>
-  <section class="bg-gray-100 py-12">
+  <section class="bg-[#d0a465] py-12">
     <div class="container mx-auto px-6 lg:px-16 text-center">
-      <h2 class="text-3xl font-bold text-gray-800 mb-8">
+      <h2 class="text-3xl font-bold text-[#587171] mb-8">
         Customer Testimonials
       </h2>
 
       <div
-        class="relative bg-white p-6 rounded-lg shadow-md mx-auto max-w-xl transition-transform duration-500 ease-in-out"
+        class="relative bg-[#fffacb] p-6 rounded-lg shadow-md mx-auto max-w-xl transition-transform duration-500 ease-in-out"
         :style="{ transform: `translateX(-${currentIndex.value * 100}%)` }"
         aria-live="polite"
       >
-        <p class="text-gray-600 italic mb-4">"{{ currentTestimonial.text }}"</p>
+        <p class="text-[#236160] italic mb-4">"{{ currentTestimonial.text }}"</p>
         <div class="flex items-center justify-between">
-          <span class="text-sm font-semibold text-gray-800">
+          <span class="text-sm font-semibold text-[#236160]">
             - {{ currentTestimonial.author }}
           </span>
-          <div class="flex text-yellow-400">
-            <span
+          <div class="flex text-[#fac826]">
+            <span 
               v-for="star in 5"
               :key="star"
               :class="
                 currentTestimonial.rating >= star
                   ? 'text-yellow-400'
-                  : 'text-gray-300'
+                  : 'text-gray-400'
               "
             >
               ★
@@ -127,7 +127,7 @@ const currentTestimonial = computed(() => Testimonials[currentIndex.value]);
         <div class="absolute top-1/2 -left-4 transform -translate-y-1/2">
           <button
             @click="prevTestimonial"
-            class="bg-yellow-500 hover:bg-yellow-600 text-white rounded-full shadow"
+            class="bg-[#236160] hover:bg-[#587171] text-[#fffacb] rounded-full shadow"
             aria-label="Previous"
           >
             <svg
@@ -146,7 +146,7 @@ const currentTestimonial = computed(() => Testimonials[currentIndex.value]);
         <div class="absolute top-1/2 -right-4 transform -translate-y-1/2">
           <button
             @click="nextTestimonial"
-            class="bg-yellow-500 hover:bg-yellow-600 text-white rounded-full shadow"
+          class="bg-[#236160] hover:bg-[#587171] text-[#fffacb] rounded-full shadow"
             aria-label="Next"
           >
             <svg
@@ -165,23 +165,23 @@ const currentTestimonial = computed(() => Testimonials[currentIndex.value]);
       </div>
 
       <div class="mt-12 ">
-        <h3 class="text-xl font-semibold text-gray-800 mb-4">
+        <h3 class="text-xl font-semibold text-[#587171] mb-4">
           Ready to get yours?
         </h3>
         <div class="space-x-4 flex flex-col items-center align-items-center gap-6 sm:block">
-          <a
-            href="https://www.amazon.com"
+          <NuxtLink
+            to="https://www.amazon.com"
             target="_blank"
-            class="inline-block px-6 py-3 text-white bg-yellow-500 hover:bg-yellow-600 rounded-lg font-semibold"
+            class="inline-block px-6 py-3 text-[#587171] bg-yellow-500 hover:bg-[#fac826] rounded-lg font-semibold"
           >
             Buy Now on Amazon
-          </a>
-          <a
-            href="#"
-            class="inline-block px-6 py-3 text-yellow-500 border border-yellow-500 hover:bg-yellow-50 rounded-lg font-semibold"
+          </NuxtLink>
+          <NuxtLink
+            to="/about-us"
+            class="inline-block px-6 py-3 text-[#587171] border border-[#587171] hover:bg-[#fac826] rounded-lg font-semibold"
           >
             Learn More
-          </a>
+          </NuxtLink>
         </div>
       </div>
     </div>

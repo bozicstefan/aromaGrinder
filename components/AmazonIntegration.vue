@@ -1,5 +1,5 @@
 <script setup>
-
+const {bgColor}=defineProps(['bgColor']);
       const reviews=[
         {
           id: 1,
@@ -16,39 +16,40 @@
           date: "November 15, 2024",
         },
       ];
+      const backgroundColor=computed(() => bgColor || '#fffacb');
 </script>
 
 <template>
-    <section class="py-20 bg-gray-50">
+    <section :class="`py-12 ${backgroundColor? `bg-[${backgroundColor}]`:''}`">
       <div class="container mx-auto px-6 lg:px-20">
  
-        <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 text-center mb-4">
+        <h2 class="text-3xl lg:text-4xl font-bold text-[#236160] text-center mb-4">
           Find us on Amazon
         </h2>
   
     
         <div class="text-center">
-          <a
-            href="https://www.amazon.com/dp/your-product-id"
+          <NuxtLink
+            to="https://www.amazon.com/dp/your-product-id"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-block px-6 py-3 bg-amber-600 text-white font-medium text-lg rounded-md shadow-lg hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500"
+            class="inline-block px-6 py-3 bg-amber-600 text-[#fffacb] font-medium text-lg rounded-md shadow-lg hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500"
           >
             Buy Now on Amazon
-          </a>
+          </NuxtLink>
         </div>
   
    
         <div class="mt-16">
-          <h3 class="text-xl font-semibold text-gray-700 text-center mb-4">
+          <h3 class="text-xl font-semibold text-[#236160] text-center mb-4">
             Customer Reviews
           </h3>
-          <div class="bg-white shadow rounded-lg p-6">
+          <div class="bg-white border  shadow rounded-lg p-6">
            
             <ul>
-              <li v-for="review in reviews" :key="review.id" class="mb-6 border-b pb-4">
-                <p class="text-gray-800 font-medium mb-2">{{ review.title }}</p>
-                <p class="text-gray-600 text-sm">{{ review.text }}</p>
+              <li v-for="review in reviews" :key="review.id" class="mb-6 border-b border-[#236160] pb-4">
+                <p class="text-[#236160] font-medium mb-2">{{ review.title }}</p>
+                <p class="text-[#236160] text-sm">{{ review.text }}</p>
                 <div class="flex items-center mt-2">
                   <span class="text-amber-500">
                     <i v-for="n in review.rating" :key="n" class="fas fa-star"></i>

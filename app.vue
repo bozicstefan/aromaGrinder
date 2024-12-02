@@ -1,7 +1,7 @@
 <template>
   <div>
     <NuxtRouteAnnouncer />
-    <NuxtLayout>
+    <NuxtLayout class="bg-[#fffacb]">
       <NuxtPage />
     </NuxtLayout>
   </div>

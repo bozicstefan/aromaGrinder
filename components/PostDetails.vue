@@ -57,7 +57,7 @@ useSeoMeta({
             />
           </div>
           <div>
-            <h1 class="text-2xl font-bold text-amber-800">
+            <h1 class="text-2xl font-bold text-[#236160]">
               {{ postDetails.title }}
             </h1>
             <p class="text-sm text-amber-600">
@@ -80,7 +80,7 @@ useSeoMeta({
           :to="`/blog/tags/${tag.slug}`"
         >
           <span
-            class="bg-amber-200 text-amber-800 text-sm px-5 py-2 rounded-full font-semibold transition duration-300 ease-in-out hover:bg-amber-200 hover:text-amber-900"
+            class="bg-amber-200 text-$[236160] text-sm px-5 py-2 rounded-full font-semibold transition duration-300 ease-in-out hover:bg-amber-200 hover:text-amber-900"
             >{{ tag.name }}</span
           >
         </NuxtLink>
@@ -91,7 +91,7 @@ useSeoMeta({
     >
       <NuxtLink to="/blog">
         <button
-          class="bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 transition w-full sm:w-auto"
+          class="bg-[#236160] text-[#fffacb] px-4 py-2 rounded-lg hover:text-[#fac826] transition w-full sm:w-auto"
         >
           More Articles
         </button>

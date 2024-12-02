@@ -7,12 +7,12 @@ useSeoMeta({
 </script>
 
 <template>
-  <div>
+  <section class="bg-[#fffacb]">
     <TheHero />
     <TheKeyFeatures />
     <TheTestimonials />
     <AmazonIntegration/>
-  </div>
+  </section>
 </template>
 
 <style scoped></style>

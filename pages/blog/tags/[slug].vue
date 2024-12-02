@@ -16,14 +16,14 @@ postsWithTag.value=res.value?.items
     <div class="container mx-auto px-6 lg:px-16 pb-20">
       <h1 class="text-4xl font-bold text-center pt-16 mb-20">
       Aroma Grinder Blog Posts with tag:
-      <span class="text-teal-600 underline">{{ slug }}</span>
+      <span class="text-[#236160] underline">{{ slug }}</span>
     </h1>
     <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       <BlogPost v-for="post in postsWithTag" :key="post.id" :post="post" />
     </section>
     </div>
   </section>
-  <AmazonIntegration/>
+  <AmazonIntegration bgColor="#d0a465"/>
 </template>
 
 <style scoped></style>

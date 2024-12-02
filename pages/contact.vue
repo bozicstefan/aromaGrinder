@@ -61,23 +61,23 @@ const submitHandler = async (data) => {
 </script>
 
 <template>
-  <section id="contact" class="py-20 bg-amber-100">
+  <section id="contact" class="py-20 bg-[#fffacb]">
     <div class="container mx-auto px-6 lg:px-18">
       <h1
-        class="text-4xl lg:text-4xl font-bold text-amber-900 text-center mb-24"
+        class="text-4xl lg:text-4xl font-bold text-[#236160] text-center mb-20"
       >
         Get in touch with Aroma Grinder
       </h1>
 
-      <div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-6">
+      <div class="max-w-lg mx-auto bg-[#d0a465] shadow-lg rounded-lg p-6">
         <FormKit
           @submit="submitHandler"
           type="form"
           id="contact-form"
-          message-class="text-red-500 mt-2 underline"
+          message-class="text-red-600 underline mb-2"
           :config="{ validationVisibility: 'submit' }"
           :submit-label="loading ? 'Sending...' : 'Send Message'"
-          actions-class="bg-amber-600 w-[50%] text-center text-white px-6 py-3 rounded-md hover:bg-amber-700 transition-colors"
+          actions-class="bg-[#236160] w-[50%] text-center font-bold text-[#fffacb] px-6 py-3 rounded-md hover:text-[#fac826] transition-colors"
         >
           <FormKit
             type="text"
@@ -86,9 +86,9 @@ const submitHandler = async (data) => {
             placeholder="Enter your name"
             validation="required"
             delay="500"
-            label-class="block text-sm font-medium text-gray-700"
-            input-class="w-full mt-1 mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-amber-500 focus:border-amber-500"
-            messages-class="text-red-500 mt-2"
+            label-class="block text-sm font-medium text-[#236160]"
+            input-class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[#236160] focus:border-[#236160]"
+            messages-class="text-red-600"
           />
 
           <FormKit
@@ -98,9 +98,9 @@ const submitHandler = async (data) => {
             placeholder="Enter your phone number"
             validation="required"
             delay="500"
-            label-class="block text-sm font-medium text-gray-700"
-            input-class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-amber-500 focus:border-amber-500"
-            messages-class="text-red-500 mt-2"
+            label-class="block text-sm font-medium text-[#236160] mt-4"
+            input-class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[#236160] focus:border-[#236160]"
+            messages-class="text-red-600"
           />
 
           <FormKit
@@ -110,9 +110,9 @@ const submitHandler = async (data) => {
             placeholder="Enter your email address"
             validation="required|email"
             delay="500"
-            label-class="block text-sm font-medium text-gray-700 mt-4"
-            input-class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-amber-500 focus:border-amber-500"
-            messages-class="text-red-500 mt-2"
+            label-class="block text-sm font-medium text-[#236160] mt-4"
+            input-class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[#236160] focus:border-[#236160]"
+            messages-class="text-red-600"
           />
 
           <FormKit
@@ -122,9 +122,9 @@ const submitHandler = async (data) => {
             placeholder="Enter message subject"
             validation="required"
             delay="500"
-            label-class="block text-sm font-medium text-gray-700 mt-4"
-            input-class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-amber-500 focus:border-amber-500"
-            messages-class="text-red-500 mt-2"
+            label-class="block text-sm font-medium text-[#236160] mt-4"
+            input-class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[#236160] focus:border-[#236160]"
+            messages-class="text-red-600"
           />
 
           <FormKit
@@ -134,9 +134,9 @@ const submitHandler = async (data) => {
             placeholder="Enter message text"
             validation="required"
             delay="500"
-            label-class="block text-sm font-medium text-gray-700 mt-4"
-            input-class="w-full mt-1  px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-amber-500 focus:border-amber-500"
-            messages-class="text-red-500 mt-2"
+            label-class="block text-sm font-medium text-[#236160] mt-4"
+            input-class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[#236160] focus:border-[#236160]"
+            messages-class="text-red-600 mt-[-.5rem]"
           />
 
           <NuxtTurnstile
@@ -152,45 +152,44 @@ const submitHandler = async (data) => {
           />
         </FormKit>
 
-        <p v-if="submitted && !errors" class="text-green-500 mt-4">
+        <p v-if="submitted && !errors" class="text-green-600 font-bold mt-4">
           Message sent successfully!
         </p>
-        <p v-if="errors" class="text-red-500 mt-4">{{ errors }}</p>
+        <p v-if="errors" class="text-red-600 mt-4">{{ errors }}</p>
       </div>
 
       <div class="text-center mt-24">
-        <h3 class="text-xl font-semibold text-amber-700 mb-4">Follow Us</h3>
+        <h3 class="text-xl font-semibold text-[#236160] mb-4">Follow Us</h3>
         <div class="flex justify-center space-x-6">
-          <a
-            href="https://instagram.com/aromagrinder"
+          <NuxtLink
+            to="https://instagram.com/aromagrinder"
             target="_blank"
             class="text-amber-600 hover:text-amber-800 text-lg font-medium"
           >
             Instagram
-          </a>
-          <a
-            href="https://facebook.com/aromagrinder"
+          </NuxtLink>
+          <NuxtLink
+            to="https://facebook.com/aromagrinder"
             target="_blank"
             class="text-amber-600 hover:text-amber-800 text-lg font-medium"
           >
             Facebook
-          </a>
+          </NuxtLink>
         </div>
       </div>
 
       <div class="text-center mt-6">
-        <p class="text-gray-700">
+        <p class="text-gray-600">
           Have questions? Contact us at
           <a
             href="mailto:info@aromagrinder.com"
             class="text-amber-600 hover:underline"
             >info@aromagrinder.com</a
-          >.
+          >
         </p>
       </div>
     </div>
   </section>
-  <AmazonIntegration />
 </template>
 
 <style scoped></style>

@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <footer class="bg-amber-900 text-amber-300 py-12">
+  <footer class="bg-[#236160] text-[#d0a465] font-medium py-12">
     <div class="container mx-auto px-6 lg:px-16">
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -10,22 +10,22 @@
           <h3 class="text-lg font-semibold mb-4 text-white">Navigation</h3>
           <ul class="space-y-2">
             <li>
-              <a href="#" class="hover:text-amber-400">Home</a>
+              <a href="#" class="hover:text-[#fac826]">Home</a>
             </li>
             <li>
-              <a href="#" class="hover:text-amber-400">About Us</a>
+              <a href="#" class="hover:text-[#fac826]">About Us</a>
             </li>
             <li>
-              <a href="#" class="hover:text-amber-400">Product</a>
+              <a href="#" class="hover:text-[#fac826]">Product</a>
             </li>
             <li>
-              <a href="#" class="hover:text-amber-400">Blog</a>
+              <a href="#" class="hover:text-[#fac826]">Blog</a>
             </li>
             <li>
-              <a href="#" class="hover:text-amber-400">FAQ</a>
+              <a href="#" class="hover:text-[#fac826]">FAQ</a>
             </li>
             <li>
-              <a href="#" class="hover:text-amber-400">Contact Us</a>
+              <a href="#" class="hover:text-[#fac826]">Contact Us</a>
             </li>
           </ul>
         </div>
@@ -34,7 +34,7 @@
           <h3 class="text-lg font-semibold mb-4 text-white">Stay Connected</h3>
           <ul class="space-y-2">
             <li>
-              <a href="" class="flex items-center hover:text-amber-400">
+              <a href="" class="flex items-center hover:text-[#fac826]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -50,7 +50,7 @@
               </a>
             </li>
             <li>
-              <a href="" class="flex items-center hover:text-amber-400">
+              <a href="" class="flex items-center hover:text-[#fac826]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="30"
@@ -66,7 +66,7 @@
               </a>
             </li>
             <li>
-              <a href="" class="flex items-center hover:text-amber-400">
+              <a href="" class="flex items-center hover:text-[#fac826]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="25"
@@ -108,13 +108,13 @@
             <li class="mt-4">
               <p>
                 Email:
-                <a href="mailto:info@yourstore.com" class="hover:text-amber-400"
+                <a href="mailto:info@yourstore.com" class="hover:text-[#fac826]"
                   >info@aromagrinder.com</a
                 >
               </p>
               <p>
                 Phone:
-                <a href="tel:+123456789" class="hover:text-amber-400"
+                <a href="tel:+123456789" class="hover:text-[#fac826]"
                   >+1 234 567 89</a
                 >
               </p>
@@ -127,20 +127,20 @@
           <h3 class="text-lg font-semibold mb-4 text-white">Legal</h3>
           <ul class="space-y-2">
             <li>
-              <a href="#" class="hover:text-amber-400">Terms of Service</a>
+              <a href="#" class="hover:text-[#fac826]">Terms of Service</a>
             </li>
             <li>
-              <a href="#" class="hover:text-amber-400">Privacy Policy</a>
+              <a href="#" class="hover:text-[#fac826]">Privacy Policy</a>
             </li>
             <li>
-              <a href="#" class="hover:text-amber-400">Cookies</a>
+              <a href="#" class="hover:text-[#fac826]">Cookies</a>
             </li>
           </ul>
         </div>
       </div>
 
   
-      <div class="text-center border-t border-amber-700 pt-6">
+      <div class="text-center border-t border-[#d0a465] pt-6">
         <p class="text-sm">
           &copy; 2024 Aroma Grinder Store. All Rights Reserved.
         </p>
@@ -151,16 +151,5 @@
 
 <style scoped>
 
-.hover\:text-amber-400:hover {
-  color: #fbbf24;
-}
-.bg-amber-900 {
-  background-color: #3f3f3f;
-}
-.text-amber-300 {
-  color: #fbbf24;
-}
-.border-amber-700 {
-  border-color: #b45309;
-}
+
 </style>
